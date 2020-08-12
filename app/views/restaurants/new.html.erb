@@ -1,7 +1,12 @@
-<%= simple_form_for [ @restaurant] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :phone_number %>
-  <%= f.input :category %>
-  <%= f.submit "Add a new restaurant", class: "btn btn-primary" %>
-<% end %>
+<div class="text-center m-3">
+  <h1 class="m-3">Let's add a new restaurant</h1>
+  <div class="container w-50">
+    <%= simple_form_for [ @restaurant] do |f| %>
+      <%= f.input :name, placeholder: "Le Perchoir" %>
+      <%= f.input :address, placeholder: "14 rue Crespin du Gast, Paris" %>
+      <%= f.input :phone_number, placeholder: "0102030405" %>
+      <%= f.input :category, placeholder: "french" %>
+      <%= f.submit "Add a new restaurant", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
