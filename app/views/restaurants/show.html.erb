@@ -1,7 +1,33 @@
-<h1><%= @restaurant.name %></h1>
-<p>Address: <%= @restaurant.address %></p>
-<p>Phone number: <%= @restaurant.phone_number %></p>
-<p>Category: <%= @restaurant.category %></p>
-<p>Category: <%= @restaurant.id %></p>
+<div class="container">
+  <div class="card w-50 m-3">
+    <div class="card-body">
+      <h1 class="card-title"><%= @restaurant.name %></h1>
+      <h5 class="card-text category"><i><%= @restaurant.category.capitalize %> restaurant</i></h5>
+      <p class="card-text address"><i class="fas fa-location-arrow"></i>    <%= @restaurant.address %></p>
+      <p class="card-text phone-number"><i class="fas fa-phone"></i>   <%=@restaurant.phone_number %></p>
+      <p class="card-text details">
+        « Passionné de cuisine depuis toujours, il m’a fallu attendre d’avoir
+        trente-trois ans pour enfin sauter le pas et aller au bout de mon rêve, ouvrir
+        mon propre restaurant : l’âge du Christ - plus sûrement que celui de la raison,
+        on garde ça pour plus tard ! - peut-être faut-il y voir un signe quand on jette
+        son dévolu sur une bâtisse séculaire couvée du regard par la Cathédrale
+        Notre-Dame…»
+      </p>
+      <p class="card-text address"></p>
+    </div>
+  </div>
 
-<%= link_to "Reviews", "/restaurants/#{@restaurant.id}/reviews" %>
+  <div class="d-flex m-3 justify-content-around">
+  <% @restaurant.reviews.each do |review|%>
+  <div class="card border-light my-3" style="max-width: 18rem;">
+    <div class="card-header">Rating: <%= "★" * review.rating %><%= "☆" * (5 - review.rating) %></div>
+    <div class="card-body">
+    <h5 class="card-title"><%= review.content %></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+  <% end %>
+  </div>
+
+<%= link_to "Add a new review", new_restaurant_review_path %>
+</div>

@@ -22,3 +22,4 @@ restaurants.each do |attributes|
   puts "Created #{restaurant.name}"
 end
 puts "Finished!"
+
